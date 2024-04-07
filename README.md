@@ -8,17 +8,18 @@
 </div>
 
 TSImportRefiner is a powerful jscodeshift script designed to optimize and sort TypeScript imports based on path aliases defined in `tsconfig.json`. It automates the refactoring of import statements, making your codebase cleaner and more maintainable.
-
-<p align="center">
-  <span style="display: inline-block; text-align: center; margin-right: 10px;">
-    <b>Before</b><br>
-    <img src="assets/before.png" alt="Before Refactoring" width="400" />
-  </span>
-  <span style="display: inline-block; text-align: center;">
-    <b>After</b><br>
-    <img src="assets/after.png" alt="After Refactoring" width="400" />
-  </span>
-</p>
+<div align="center">
+<table>
+  <tr>
+    <td align="center"><b>Before</b></td>
+    <td align="center"><b>After</b></td>
+  </tr>
+  <tr>
+    <td><img src="assets/before.png" alt="Before Refactoring" width="450"/></td>
+    <td><img src="assets/after.png" alt="After Refactoring" width="450"/></td>
+  </tr>
+</table>
+</div>
 
 ## Features
 
