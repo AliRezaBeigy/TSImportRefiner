@@ -1,0 +1,31 @@
+{
+  "name": "tsimportrefiner",
+  "version": "1.0.0",
+  "description": "A jscodeshift script for optimizing and sorting TypeScript imports based on path aliases defined in tsconfig.",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "bin": {
+    "tsimportrefiner": "./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AliRezaBeigy/TSImportRefiner.git"
+  },
+  "keywords": ["typescript", "jscodeshift", "imports", "refactoring"],
+  "homepage": "https://github.com/AliRezaBeigy/TSImportRefiner",
+  "author": "AliReza Beigy",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.12"
+  },
+  "peerDependencies": {
+    "typescript": ">=5.4.4",
+    "jscodeshift": ">=0.15.2"
+  }
+}

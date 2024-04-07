@@ -1,0 +1,44 @@
+# Dependency directories
+node_modules/
+
+# Build outputs
+dist/
+build/
+out/
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Test files
+tests/
+*.test.js
+*.spec.js
+
+# Configuration files
+*.yml
+*.yaml
+.eslintrc
+.jshintrc
+.prettierrc
+
+# IDE/Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Documentation
+README.md
+CHANGELOG.md
+CONTRIBUTING.md
+
+# Other files
+*.md
+*.markdown
+LICENSE
+yarn.lock
