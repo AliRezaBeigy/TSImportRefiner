@@ -41,16 +41,18 @@ function getCompilerOptions(tsconfigPath) {
  * @returns {string} The aliased path, or the original path if no alias found.
  */
 function convertToAlias(tsconfigPath, filePath, importPath) {
-    const tsconfig = tsconfigPath
-        ? JSON.parse(fs.readFileSync(tsconfigPath, 'utf8'))
-        : null;
-    if (!tsconfig?.compilerOptions?.paths) {
+    if (!tsconfigPath) {
         return importPath;
     }
 
     const compilerOptions = getCompilerOptions(tsconfigPath);
-    const mappings = tsconfig.compilerOptions.paths;
-    const baseUrl = tsconfig.compilerOptions.baseUrl || '.';
+
+    if (!compilerOptions.paths) {
+        return importPath;
+    }
+
+    const mappings = compilerOptions.paths;
+    const baseUrl = compilerOptions.baseUrl || '.';
 
     const result = ts.resolveModuleName(
         importPath,
@@ -70,9 +72,11 @@ function convertToAlias(tsconfigPath, filePath, importPath) {
             ? resolvedPath.substring(projectRoot.length + 1)
             : resolvedPath;
 
-        for (const [alias, paths] of Object.entries(mappings)) {
+        const sortedAliases = Object.keys(mappings).sort((a, b) => b.length - a.length);
+
+        for (const alias of sortedAliases) {
             const aliasKey = alias.replace('*', '');
-            const aliasPaths = paths.map(p => p.replace('*', ''));
+            const aliasPaths = mappings[alias].map(p => p.replace('*', ''));
 
             for (const aliasPath of aliasPaths) {
                 if (relativeResolvedPath.startsWith(aliasPath)) {
